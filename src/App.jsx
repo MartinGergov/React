@@ -13,7 +13,7 @@ export function App() {
       {/* También se puede usar directamente en la App */}
       {/* Los dos se pueden usar siempre y cuando estén dentro de un solo contenedor padre */}
       <hr />
-      <Welcome name="Martin" />
+      <Welcome name="Martin" age={29} />
       <hr />
     </div>
   );
