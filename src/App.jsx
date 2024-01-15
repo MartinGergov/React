@@ -1,4 +1,5 @@
 import { Age } from "./Age";
+import { AlertClock } from "./AlertClock";
 import { Hello } from "./Hello";
 import { Message } from "./Message";
 import { Welcome } from "./Welcome";
@@ -16,6 +17,7 @@ export function App() {
       <hr />
       <Welcome name="Martin" />
       <hr />
+      <AlertClock />
     </div>
   );
 }
