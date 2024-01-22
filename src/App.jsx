@@ -3,6 +3,7 @@ import { Clock } from "./Clock";
 import { Counter } from "./Counter";
 import { Hello } from "./Hello";
 import { Message } from "./Message";
+import { MouseClicker } from "./MouseClicker";
 import { Welcome } from "./Welcome";
 
 export function App() {
@@ -23,6 +24,9 @@ export function App() {
       <Counter />
       <hr />
       <Clock />
+      <hr />
+      <MouseClicker />
+      <hr />
     </div>
   );
 }
