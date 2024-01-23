@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 function createData() {
   return {
@@ -8,7 +8,7 @@ function createData() {
   };
 }
 
-export function Login() {
+export function Login({ onLogin }) {
   const [data, setData] = useState(createData());
 
   function handleInputChange(event) {
@@ -22,37 +22,51 @@ export function Login() {
     });
   }
 
-  //   function handleLogin() {
-  //     onLogin(data);
-  //   }
+  function handleLogin(event) {
+    event.preventDefault();
+
+    onLogin(data);
+  }
 
   function handleReset() {
     setData(createData());
   }
 
   return (
-    <div>
-      <input
-        name="username"
-        value={data.username}
-        onChange={handleInputChange}
-        placeholder="Enter your name"
-      />
-      <input
-        name="password"
-        type="password"
-        value={data.password}
-        onChange={handleInputChange}
-        placeholder="Enter your password"
-      />
-      <input
-        name="remember"
-        type="checkbox"
-        value={data.remember}
-        onChange={handleInputChange}
-      />
-      <button disabled={!data.username || !data.password}>Login</button>
-      <button onClick={handleReset}>Reset</button>
-    </div>
+    <form onSubmit={handleLogin}>
+      <div>
+        <input
+          name="username"
+          value={data.username}
+          onChange={handleInputChange}
+          placeholder="Enter your name"
+        />
+      </div>
+      <div>
+        <input
+          name="password"
+          type="password"
+          value={data.password}
+          onChange={handleInputChange}
+          placeholder="Enter your password"
+        />
+      </div>
+      <div>
+        <input
+          name="remember"
+          type="checkbox"
+          value={data.remember}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div>
+        <button type="submit" disabled={!data.username || !data.password}>
+          Login
+        </button>
+        <button type="button" onClick={handleReset}>
+          Reset
+        </button>
+      </div>
+    </form>
   );
 }
