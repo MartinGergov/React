@@ -7,6 +7,7 @@ function createData() {
     remember: false,
   };
 }
+
 export function Login() {
   const [data, setData] = useState(createData());
 
@@ -17,8 +18,16 @@ export function Login() {
     const type = event.target.type;
 
     setData((info) => {
-      return { ...info, [name]: type === "checked" ? checked : value };
+      return { ...info, [name]: type === "checkbox" ? checked : value };
     });
+  }
+
+  //   function handleLogin() {
+  //     onLogin(data);
+  //   }
+
+  function handleReset() {
+    setData(createData());
   }
 
   return (
@@ -26,23 +35,24 @@ export function Login() {
       <input
         name="username"
         value={data.username}
-        type="text"
         onChange={handleInputChange}
         placeholder="Enter your name"
       />
       <input
         name="password"
-        value={data.password}
         type="password"
+        value={data.password}
         onChange={handleInputChange}
         placeholder="Enter your password"
       />
       <input
         name="remember"
-        value={data.remember}
         type="checkbox"
+        value={data.remember}
         onChange={handleInputChange}
       />
+      <button disabled={!data.username || !data.password}>Login</button>
+      <button onClick={handleReset}>Reset</button>
     </div>
   );
 }
