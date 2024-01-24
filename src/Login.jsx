@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function createData() {
   return {
@@ -8,7 +8,7 @@ function createData() {
   };
 }
 
-export function Login({ onLogin }) {
+export function Login() {
   const [data, setData] = useState(createData());
 
   function handleInputChange(event) {
@@ -25,7 +25,7 @@ export function Login({ onLogin }) {
   function handleLogin(event) {
     event.preventDefault();
 
-    onLogin(data);
+    // onLogin(data);
   }
 
   function handleReset() {
@@ -34,39 +34,35 @@ export function Login({ onLogin }) {
 
   return (
     <form onSubmit={handleLogin}>
-      <div>
-        <input
-          name="username"
-          value={data.username}
-          onChange={handleInputChange}
-          placeholder="Enter your name"
-        />
-      </div>
-      <div>
-        <input
-          name="password"
-          type="password"
-          value={data.password}
-          onChange={handleInputChange}
-          placeholder="Enter your password"
-        />
-      </div>
-      <div>
-        <input
-          name="remember"
-          type="checkbox"
-          value={data.remember}
-          onChange={handleInputChange}
-        />
-      </div>
-      <div>
-        <button type="submit" disabled={!data.username || !data.password}>
-          Login
-        </button>
-        <button type="button" onClick={handleReset}>
-          Reset
-        </button>
-      </div>
+      <h2>Controlled Login</h2>
+      <input
+        name="username"
+        value={data.username}
+        onChange={handleInputChange}
+        placeholder="Enter your name"
+      />
+
+      <input
+        name="password"
+        type="password"
+        value={data.password}
+        onChange={handleInputChange}
+        placeholder="Enter your password"
+      />
+
+      <input
+        name="remember"
+        type="checkbox"
+        value={data.remember}
+        onChange={handleInputChange}
+      />
+
+      <button type="submit" disabled={!data.username || !data.password}>
+        Login
+      </button>
+      <button type="button" onClick={handleReset}>
+        Reset
+      </button>
     </form>
   );
 }
