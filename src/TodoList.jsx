@@ -11,8 +11,13 @@ export function TodoList() {
     }
   }
 
+  function handleReset() {
+    setTodos([]);
+  }
+
   return (
     <div>
+      <h2>Todo List</h2>
       <ul>
         {todos.map((todo, index) => (
           <li key={index}>{todo}</li>
@@ -23,6 +28,7 @@ export function TodoList() {
         onChange={(event) => setNewTodo(event.target.value)}
       />
       <button onClick={handleAddTodo}>Add to the list</button>
+      <button onClick={handleReset}>Reset</button>
     </div>
   );
 }
