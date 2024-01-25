@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import classes from "./Clock.module.scss";
+import { LanguageContext } from "../LanguageContext";
 
 export function Clock() {
+  const language = useContext(LanguageContext);
+
   const [date, setDate] = useState(new Date());
   useEffect(() => {
     setInterval(() => {
@@ -11,7 +14,10 @@ export function Clock() {
 
   return (
     <div className={classes.clock}>
-      <h2>{date.toLocaleTimeString()}</h2>
+      <p>
+        {language === "en" ? "Current time: " : "Hora actual: "}
+        <strong>{date.toLocaleTimeString()}</strong>
+      </p>
     </div>
   );
 }

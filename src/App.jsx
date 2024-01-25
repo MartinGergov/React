@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AlertClock } from "./AlertClock";
 import { Clock } from "./Clock/Clock";
 import { Colors } from "./Colors";
@@ -12,8 +13,15 @@ import { MouseClicker } from "./MouseClicker";
 import { TodoList } from "./TodoList/TodoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
+import { LanguageContext } from "./LanguageContext";
 
 export function App() {
+  const [language, setLanguage] = useState("en");
+
+  function handleChangeLanguage(language) {
+    setLanguage(language);
+  }
+
   return (
     <Container title={<h1>React</h1>}>
       <Hello />
@@ -30,7 +38,11 @@ export function App() {
       <hr />
       <Counter />
       <hr />
-      <Clock />
+      <LanguageContext.Provider value={language} >
+        <Clock />
+        <button onClick={() => handleChangeLanguage("es")}>ES</button>
+        <button onClick={() => handleChangeLanguage("en")}>EN</button>
+      </LanguageContext.Provider>
       <hr />
       <MouseClicker />
       <hr />
