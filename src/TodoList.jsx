@@ -15,12 +15,21 @@ export function TodoList() {
     setTodos([]);
   }
 
+  function handleRemove(index) {
+    const deleteTodos = [...todos];
+    deleteTodos.splice(index, 1);
+    setTodos(deleteTodos);
+  }
+
   return (
     <div>
       <h2>Todo List</h2>
       <ul>
         {todos.map((todo, index) => (
-          <li key={index}>{todo}</li>
+          <li key={index}>
+            {todo}
+            <button onClick={handleRemove}>Remove</button>
+          </li>
         ))}
       </ul>
       <input
