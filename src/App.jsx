@@ -1,5 +1,5 @@
 import { AlertClock } from "./AlertClock";
-import { Clock } from "./Clock";
+import { Clock } from "./Clock/Clock";
 import { Colors } from "./Colors";
 import { Counter } from "./Counter";
 import { FocusableInput } from "./FocusableInput";
