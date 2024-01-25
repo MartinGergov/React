@@ -1,5 +1,6 @@
 import { AlertClock } from "./AlertClock";
 import { Clock } from "./Clock";
+import { Colors } from "./Colors";
 import { Counter } from "./Counter";
 import { FocusableInput } from "./FocusableInput";
 import { Hello } from "./Hello";
@@ -38,6 +39,15 @@ export function App() {
       <UncontrolledLogin />
       <hr />
       <FocusableInput />
+      <hr />
+      <Colors
+        colorList={[
+          { id: 1, name: "Black" },
+          { id: 2, name: "Red" },
+          { id: 3, name: "Green" },
+          { id: 4, name: "Yellow" },
+        ]}
+      />
       <hr />
     </div>
   );

@@ -17,6 +17,7 @@ export function InteractiveWelcome() {
 
   return (
     <div>
+      <h2>Interactive Welcome</h2>
       <input
         type="text"
         value={inputValue}
