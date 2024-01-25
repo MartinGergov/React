@@ -8,7 +8,7 @@ import { InteractiveWelcome } from "./InteractiveWelcome";
 import { Login } from "./Login";
 import { Message } from "./Message";
 import { MouseClicker } from "./MouseClicker";
-import { TodoList } from "./TodoList";
+import { TodoList } from "./TodoList/TodoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 
