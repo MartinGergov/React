@@ -7,7 +7,7 @@ import { Counter } from "./Counter/Counter";
 import { FocusableInput } from "./FocusableInput";
 import { Hello } from "./Hello";
 import { InteractiveWelcome } from "./InteractiveWelcome";
-import { Login } from "./Login";
+import { Login } from "./LoginForm/Login";
 import { Message } from "./Message";
 import { MouseClicker } from "./MouseClicker";
 import { TodoList } from "./TodoList/TodoList";
