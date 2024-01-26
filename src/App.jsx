@@ -70,6 +70,7 @@ export function App() {
       <GithubUsers />
       <hr />
       <CurrentLocation />
+      <hr />
     </Container>
   );
 }
