@@ -16,6 +16,7 @@ import { Welcome } from "./Welcome";
 import { LanguageContext } from "./LanguageContext";
 import { GithubUsers } from "./GithubList/GithubUsers";
 import { CurrentLocation } from "./CurrentLocation/CurrentLocation";
+import { FilteredList } from "./FilteredList";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -24,6 +25,12 @@ export function App() {
     setLanguage(language);
   }
 
+  const dataList = [
+    { id: 1, name: "Pedro", age: 34 },
+    { id: 2, name: "Carmen", age: 17 },
+    { id: 3, name: "Alicia", age: 22 },
+    { id: 4, name: "Jaime", age: 27 },
+  ];
   return (
     <Container title={<h1>React</h1>}>
       <Hello />
@@ -71,6 +78,7 @@ export function App() {
       <hr />
       <CurrentLocation />
       <hr />
+      <FilteredList list={dataList} />
     </Container>
   );
 }
