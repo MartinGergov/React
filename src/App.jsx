@@ -14,7 +14,7 @@ import { TodoList } from "./TodoList/TodoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 import { LanguageContext } from "./LanguageContext";
-import { GitHubUser } from "./GitHubUser";
+import { GithubUsers } from "./GithubList/GithubUsers";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -66,7 +66,7 @@ export function App() {
       <hr />
       <TodoList />
       <hr />
-      <GitHubUser username="MartinGergov" />
+      <GithubUsers />
     </Container>
   );
 }
