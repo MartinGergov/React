@@ -14,6 +14,7 @@ import { TodoList } from "./TodoList/TodoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 import { LanguageContext } from "./LanguageContext";
+import { GitHubUser } from "./GitHubUser";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -38,7 +39,7 @@ export function App() {
       <hr />
       <Counter />
       <hr />
-      <LanguageContext.Provider value={language} >
+      <LanguageContext.Provider value={language}>
         <Clock />
         <button onClick={() => handleChangeLanguage("es")}>ES</button>
         <button onClick={() => handleChangeLanguage("en")}>EN</button>
@@ -64,6 +65,8 @@ export function App() {
       />
       <hr />
       <TodoList />
+      <hr />
+      <GitHubUser username="MartinGergov" />
     </Container>
   );
 }
