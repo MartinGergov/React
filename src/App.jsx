@@ -15,6 +15,7 @@ import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 import { LanguageContext } from "./LanguageContext";
 import { GithubUsers } from "./GithubList/GithubUsers";
+import { CurrentLocation } from "./CurrentLocation/CurrentLocation";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -67,6 +68,8 @@ export function App() {
       <TodoList />
       <hr />
       <GithubUsers />
+      <hr />
+      <CurrentLocation />
     </Container>
   );
 }
