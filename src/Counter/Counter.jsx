@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { CounterDisplay } from "./CounterDisplay";
+import { useCounter } from "./useCounter";
 
 export function Counter({ initialValue = 0 }) {
-  const [counter, setCounter] = useState(initialValue);
+  const { counter, onIncrement, onDecrement, onReset } =
+    useCounter(initialValue);
 
   const changeRef = useRef(null);
 
@@ -15,32 +17,21 @@ export function Counter({ initialValue = 0 }) {
 
     console.log(`Direction: ${direction}`);
     changeRef.current = counter;
-    
+
     console.log(`The current value is : ${counter}`);
   }, [counter]);
 
-  function handleCounterIncrement() {
-    setCounter((c) => c + 1);
-  }
-
-  function handleCounterDecrement() {
-    setCounter((c) => c - 1);
-  }
-
-  function handleCounterReset() {
-    setCounter(initialValue);
-  }
-
   return (
     <div>
+      <h2>Counter</h2>
       <CounterDisplay counter={counter} />
-      <button ref={changeRef} onClick={handleCounterIncrement}>
+      <button ref={changeRef} onClick={onIncrement}>
         Increment
       </button>
-      <button ref={changeRef} onClick={handleCounterDecrement}>
+      <button ref={changeRef} onClick={onDecrement}>
         Decrement
       </button>
-      <button onClick={handleCounterReset}>Reset</button>
+      <button onClick={onReset}>Reset</button>
     </div>
   );
 }

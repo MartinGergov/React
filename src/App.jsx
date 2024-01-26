@@ -3,7 +3,7 @@ import { AlertClock } from "./AlertClock";
 import { Clock } from "./Clock/Clock";
 import { Colors } from "./Colors";
 import { Container } from "./Container";
-import { Counter } from "./Counter";
+import { Counter } from "./Counter/Counter";
 import { FocusableInput } from "./FocusableInput";
 import { Hello } from "./Hello";
 import { InteractiveWelcome } from "./InteractiveWelcome";
