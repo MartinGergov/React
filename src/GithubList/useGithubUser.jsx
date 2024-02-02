@@ -2,11 +2,13 @@ import useSWR from "swr";
 
 export function useGithubUser(username) {
   const { data, error, mutate } = useSWR(
-    `https://api.github.com/users/${username}`
+    username ? `https://api.github.com/users/${username}` : null
   );
 
   function fetchGithubUser() {
-    mutate();
+    if (username) {
+      mutate();
+    }
   }
 
   return {
