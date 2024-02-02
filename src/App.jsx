@@ -17,6 +17,15 @@ export function App() {
           path="/users/:username"
           element={<GithubUser username="MartinGergov" />}
         />
+        <Route
+          path="/*"
+          element={
+            <div>
+              <p>Not found</p>
+              <Link to="/">Go home</Link>
+            </div>
+          }
+        />
       </Routes>
     </Container>
   );
