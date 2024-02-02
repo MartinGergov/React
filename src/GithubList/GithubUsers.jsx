@@ -1,32 +1,24 @@
-import { useState } from "react";
-import { GithubUser } from "./GithubUser";
+import { useGithubUsers } from "./useGithubUsers";
+import { Link, Outlet } from "react-router-dom";
 
 export function GithubUsers() {
-  const [data, setData] = useState("");
-  const [usernames, setUsernames] = useState([]);
-
-  function handleSearch(event) {
-    event.preventDefault();
-
-    setUsernames((prevUsernames) => [...prevUsernames, data]);
-
-    setData("");
-  }
-
+  const { users, error, isLoading, onRefresh } = useGithubUsers();
   return (
     <div>
-      <form onSubmit={handleSearch}>
-        <input value={data} onChange={(event) => setData(event.target.value)} />
-        <button>Search</button>
-      </form>
-      <h3>List of users:</h3>
-      <ul>
-        {usernames.map((username) => (
-          <li key={username}>
-            <GithubUser username={username} />
-          </li>
-        ))}
-      </ul>
+      <button onClick={onRefresh}>Refresh</button>
+      {isLoading && <h3>Loading...</h3>}
+      {error && <h3>An error has occurred</h3>}
+      {users && (
+        <ul>
+          {users.map((user) => (
+            <li key={user.login}>
+              <Link to={`/users/${user.login}`}>{user.login}</Link>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <Outlet />
     </div>
   );
 }
