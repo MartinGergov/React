@@ -8,8 +8,6 @@ import { GithubUser } from "./GithubList/GithubUser";
 export function App() {
   return (
     <Container>
-      <Link to="/">Home</Link> | <Link to="/counter">Counter</Link> |{" "}
-      <Link to="/users/:username">Github User</Link>
       <Routes>
         <Route path="/" element={<Welcome name="Martin" />} />
         <Route path="/counter" element={<Counter />} />
